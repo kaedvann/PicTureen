@@ -14,10 +14,24 @@
         <Grid Row ="1"
             ShowGridLines="True">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
+            <GridSplitter Grid.Column="1" 
+              HorizontalAlignment="Left" 
+              VerticalAlignment="Stretch"
+              Background="Black" 
+              ShowsPreview="true"
+              Width="4"/>
+            <GridSplitter Grid.Column="2" 
+              HorizontalAlignment="Left" 
+              VerticalAlignment="Stretch"
+              Background="Black" 
+              ShowsPreview="true"
+              Width="4"/>
+            
         </Grid>
         <UserControl></UserControl>
     </Grid>
