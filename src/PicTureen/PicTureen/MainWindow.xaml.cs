@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PicTureen.ViewModels;
 
 namespace PicTureen
 {
@@ -22,7 +23,9 @@ namespace PicTureen
     {
         public MainWindow()
         {
+            DataContext = new MainWindowViewModel();
             InitializeComponent();
+            
         }
     }
 }
