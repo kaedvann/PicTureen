@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Data.SQLite;
 using Interfaces;
 
@@ -11,6 +12,20 @@ namespace Database
         public ImagesDbContext(IDbHelper dbHelper):base(new SQLiteConnection(dbHelper.ConnectionString), true)
         {
             
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Image>().ToTable("images").Property(i => i.Path).HasColumnName("path");
+            modelBuilder.Entity<Image>().HasKey(i => i.Id).Property(i => i.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Tag>().ToTable("tags");
+            modelBuilder.Entity<Tag>().HasKey(t => t.Id).Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Image>().HasMany(i => i.Tags).WithMany(t => t.Images).Map(x =>
+            {
+                x.ToTable("ImagesTags");
+                x.MapLeftKey("image_id");
+                x.MapRightKey("tag_id");
+            });
         }
     }
 }

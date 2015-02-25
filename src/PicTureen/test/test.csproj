@@ -77,6 +77,10 @@
       <Project>{E4EE3CB8-82E1-45F6-8833-6A75023D6F65}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{872C3FFD-AAC4-4890-A4B7-98223F1B321C}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
