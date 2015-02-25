@@ -12,7 +12,7 @@ namespace test
             using (var conn = new SQLiteConnection(new Helper().ConnectionString))
             {
                 conn.Open();
-                var tagTable = @"create table tags (Id bigint primary key, Name text)";
+                const string tagTable = @"create table tags (Id bigint primary key, Name text)";
                 new SQLiteCommand(tagTable, conn).ExecuteNonQuery();
             }
         }
