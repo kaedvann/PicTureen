@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PicTureen.ViewModels;
-using Xceed.Wpf.AvalonDock;
 
-namespace PicTureen
+namespace PicTureen.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PropertiesView.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class PropertiesView : UserControl
     {
-        public MainWindow()
+        public PropertiesView()
         {
-            DataContext = new MainWindowViewModel();
             InitializeComponent();
-            
         }
     }
 }
