@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Data.Entity;
 using System.Data.SQLite;
 using Interfaces;
@@ -14,10 +15,11 @@ namespace Database
             
         }
 
-        private ImagesDbContext(SQLiteConnection connection)
-            : base(connection, true)
+        internal ImagesDbContext(SQLiteConnection connection, bool contextOwnsConnection = true)
+            : base(connection, contextOwnsConnection)
         {
-            connection.Open();
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
             new SQLiteCommand(@"pragma foreign_keys = ON", connection).ExecuteNonQuery();
         }
 
