@@ -4,66 +4,161 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="200">
+             d:DesignHeight="350" d:DesignWidth="200">
+
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="29*"></RowDefinition>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"/>
 
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-                <RowDefinition Height="30*"></RowDefinition>
-
-                <RowDefinition Height="29*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Width:"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Height:"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Rating:"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Tags:"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Description:"/>
+
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="3" />
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="3" />
+
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="3" 
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"/>
+        <Button 
+            x:Name="ShowHideButton"
+            Grid.Column="1" Grid.Row="6" 
+                    HorizontalAlignment="Center"
+                    MinWidth="80" 
+                    Margin="3" 
+                    Content="More"
+            Command="{Binding ShowMoreCommand}">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding State}"
+                             Value="ShowingAll">
+                            <Setter Property="Button.Content"
+                            Value="Less"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding State}"
+                             Value="ShowingLittle">
+                            <Setter Property="Button.Content"
+                            Value="More"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Grid x:Name="AdditionalInfoGrid"
+             Grid.Row="7"
+             Grid.Column="0"
+             Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Size:"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Resolution:"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Rating:"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Tags:"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Comment:"/>
-
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="3" />
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="3" />
-            <TextBox Grid.Column="1" Grid.Row="2" Margin="3" />
-
-            <TextBox Grid.Column="1" Grid.Row="5" Margin="3" 
-                     TextWrapping="Wrap"
-                     AcceptsReturn="True"/>
-            <Button Grid.Column="1" Grid.Row="6" 
-                    HorizontalAlignment="Right"
+            <Label Grid.Row="0" Grid.Column="0" Content="Size:"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Creation date:"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Colour depth:"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Vertical DPI:"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Horizontal DPI:"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Margin="3" 
+                 Text="{Binding Path=Size}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Margin="3"
+                 Text="{Binding Path=CreationDate}" />
+            <TextBox Grid.Column="1" Grid.Row="2" Margin="3" 
+                 Text="{Binding Path=ColourDepth}"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Margin="3" 
+                 Text="{Binding Path=VerticalDpi}"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Margin="3"
+                 Text="{Binding Path=HorizontalDpi}" />
+            <Button x:Name="SaveButton2" 
+                    Grid.Column="1" Grid.Row="5" 
+                    HorizontalAlignment="Center"
                     MinWidth="80" 
                     Margin="3" 
-                    Content="More"  />
+                Command="{Binding SaveCommand}"
+                    Content="Save"  />
+            <Grid.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding State}"
+                             Value="ShowingAll">
+                            <Setter Property="Grid.Visibility"
+                            Value="Visible"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding State}"
+                             Value="ShowingLittle">
+                            <Setter Property="Grid.Visibility"
+                            Value="Collapsed"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
 
-            <Label Grid.Row="7" Grid.Column="0" Content="Creation date:"/>
-            <Label Grid.Row="8" Grid.Column="0" Content="Colour depth:"/>
-            <Label Grid.Row="9" Grid.Column="0" Content="Vertical DPI:"/>
-            <Label Grid.Row="10" Grid.Column="0" Content="Horizontal DPI:"/>
+        </Grid>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="3" />
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="3" />
-            <TextBox Grid.Column="1" Grid.Row="2" Margin="3" />
 
-            <TextBox Grid.Column="1" Grid.Row="5" Margin="3" 
+        <TextBox Grid.Column="1" 
+                 Grid.Row="0" 
+                 Margin="3" 
+                 Text="{Binding Path=Name}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="3"
+                 Text="{Binding Path=Width}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="3"
+                 Text="{Binding Path=Height}" />
+
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="3" 
                      TextWrapping="Wrap"
-                     AcceptsReturn="True"/>
-
-        <Button Grid.Column="1" Grid.Row="11" 
-                    HorizontalAlignment="Right"
+                     AcceptsReturn="True"
+                 Text="{Binding Path=Description}"/>
+        <Button x:Name="SaveButton1" 
+                    Grid.Column="0" Grid.Row="6" 
+                    HorizontalAlignment="Center"
                     MinWidth="80" 
                     Margin="3" 
-                    Content="Less"  />
+                    Content="Save"
+                Command="{Binding SaveCommand}">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding State}"
+                         Value="ShowingAll">
+                            <Setter Property="Button.Visibility"
+                        Value="Hidden"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding State}"
+                         Value="ShowingLittle">
+                            <Setter Property="Button.Visibility"
+                        Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
     </Grid>
 </UserControl>

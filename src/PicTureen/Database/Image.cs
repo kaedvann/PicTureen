@@ -75,6 +75,15 @@ namespace Database
         public int Rating { get; set; }
 
         /// <summary>
+        /// Image width in pixels
+        /// </summary>
+        public int Width { get; set; }
+        /// <summary>
+        /// Image height in pixels
+        /// </summary>
+        public int Height{ get; set; }
+
+        /// <summary>
         /// Tags, associated with the image
         /// </summary>
         public virtual ICollection<Tag> Tags { get; set; }
