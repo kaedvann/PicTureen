@@ -33,6 +33,8 @@ namespace Database
                                             Id integer primary key not null,
                                             Path text not null,
                                             Rating integer,
+                                            Height integer,
+                                            Width integer,
                                             Description text)";
             const string mappingTable = @"create table  if not exists ImagesTags
                                               (
