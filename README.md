@@ -1,7 +1,7 @@
 # PicTureen
 Небольшая программа для упорядочивания коллекции изображений с поддержкой оценок и тэгов.
 
-[Develop build status](https://ci.appveyor.com/api/projects/status/github/kaedvann/pictureen?branch=develop&retina=true)
+![Develop build status](https://ci.appveyor.com/api/projects/status/github/kaedvann/pictureen?branch=develop&retina=true)
 
 Команда разработчиков:  
 * Листеренко Р.Р
