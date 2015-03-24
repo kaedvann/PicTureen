@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing.Imaging;
 using System.IO;
-using System.Net.Mime;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using PicTureen.Annotations;
 using Database;
 using PicTureen.Support;
@@ -20,9 +19,9 @@ namespace PicTureen.ViewModels
         private string _description;
         private double _size;
         private DateTime _creationDate;
-        private byte _colourDepth;
-        private int _verticalDpi;
-        private int _horizontalDpi;
+        private PixelFormat _colourDepth;
+        private float _verticalDpi;
+        private float _horizontalDpi;
         private ObservableCollection<Tag> _tags;
         public event PropertyChangedEventHandler PropertyChanged;
         private DelegateCommand _showMoreCommand;
@@ -176,7 +175,7 @@ namespace PicTureen.ViewModels
             }
         }
 
-        public string ColourDepth
+        public PixelFormat ColourDepth
         {
             get { return _colourDepth; }
             set
@@ -192,7 +191,6 @@ namespace PicTureen.ViewModels
             get { return _verticalDpi; }
             set
             {
-                if (value == _verticalDpi) return;
                 _verticalDpi = value;
                 OnPropertyChanged();
             }
@@ -203,7 +201,6 @@ namespace PicTureen.ViewModels
             get { return _horizontalDpi; }
             set
             {
-                if (value == _horizontalDpi) return;
                 _horizontalDpi = value;
                 OnPropertyChanged();
             }
@@ -254,7 +251,7 @@ namespace PicTureen.ViewModels
             Size = inf.Length >> 10;
             CreationDate = inf.CreationTime;
             System.Drawing.Image im = System.Drawing.Image.FromFile(Path);
-            ColourDepth = im.PixelFormat.ToString();
+            ColourDepth = im.PixelFormat;
             VerticalDpi = im.VerticalResolution;
             HorizontalDpi = im.HorizontalResolution;
             _additionalDataLoaded = true;
