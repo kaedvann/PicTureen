@@ -20,6 +20,7 @@ namespace PicTureen
         {
             _container.RegisterInstance(_container);
             _container.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IFileScanner, FileScanner>(new ContainerControlledLifetimeManager());
         }
     }
 }

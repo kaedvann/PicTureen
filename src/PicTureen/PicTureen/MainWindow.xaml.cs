@@ -9,9 +9,7 @@ namespace PicTureen
     {
         public MainWindow()
         {
-            DataContext = new MainWindowViewModel();
-            InitializeComponent();
-            
+            InitializeComponent();   
         }
     }
 }

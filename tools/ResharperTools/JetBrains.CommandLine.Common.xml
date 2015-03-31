@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.CommandLine.Common</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.CommandLine.Common.Environment.IConsoleZone">
+            <summary>
+            All products running in a standalone fashion — not under VS nor unit testing.
+            </summary>
+        </member>
+        <member name="M:JetBrains.CommandLine.Common.Hacks.CommandLineFileDependenciesSynchronizer.SchedulerTask">
+            <summary>
+            Do not start synchronization process
+            </summary>
+        </member>
+        <member name="T:JetBrains.CommandLine.Common.Logging.ToolLoggerInstaller">
+            <summary>
+            Attaches logger listener to the logger from environment and replaces console logger.
+            </summary>
+        </member>
+    </members>
+</doc>

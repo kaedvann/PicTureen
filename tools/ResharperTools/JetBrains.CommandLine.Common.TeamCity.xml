@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.CommandLine.Common.TeamCity</name>
+    </assembly>
+    <members>
+        <member name="T:JetBrains.CommandLine.Common.TeamCity.Logging.TeamCityToolLogger">
+            <summary>
+            Log all messages in TeamCity's service messages format
+            </summary>
+        </member>
+        <member name="T:JetBrains.CommandLine.Common.TeamCity.ZoneMarker">
+            <summary>
+            Set of assets for for TeamCity specific console environment.
+            </summary>
+        </member>
+    </members>
+</doc>
