@@ -11,5 +11,6 @@ E-mail: r.listerenko@gmail.com
 
 [Баг-трекер] (http://moonycrucian.myjetbrains.com/youtrack/rest/agile/)  
 [Билд-сервер] (https://ci.appveyor.com/project/kaedvann/pictureen)  
+[API - доки] (http://kaedvann.github.io/PicTureen/)  
 [Задание на проект] (docs/tasks.md)  
 [Таблица рисков](docs/Risks.md)
