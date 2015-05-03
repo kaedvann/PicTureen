@@ -21,14 +21,22 @@
                       Width="120"
                       Margin="20"
                       HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
+                      VerticalAlignment="Center"
+                      Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
+                    <Grid.InputBindings>
+                        <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+                        <MouseBinding MouseAction="LeftDoubleClick"
+                                      Command="{Binding Path=DataContext.OpenImageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                      CommandParameter="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}}"></MouseBinding>
+                    </Grid.InputBindings>
                     <Image Source="{Binding Path}" />
                     <TextBlock Grid.Row="1"
                                Text="{Binding Path}" />
+                    
                 </Grid>
             </DataTemplate>
         </ListView.ItemTemplate>

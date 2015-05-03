@@ -1,0 +1,17 @@
+﻿<Window x:Class="PicTureen.Views.FullImageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:PicTureen.ViewModels"
+        mc:Ignorable="d"
+        Title="FullImageView" 
+        Height="300" 
+        Width="300" 
+        d:DataContext="{d:DesignInstance viewModels:FullImageViewModel}"
+        ShowInTaskbar="False"
+        WindowState="Maximized">
+    <Grid>
+        <Image Source="{Binding Path=Image.Path}"></Image>
+    </Grid>
+</Window>

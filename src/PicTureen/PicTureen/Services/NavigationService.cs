@@ -1,6 +1,8 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Database;
+using Microsoft.Practices.Unity;
 using PicTureen.Annotations;
 using PicTureen.ViewModels;
+using PicTureen.Views;
 
 namespace PicTureen.Services
 {
@@ -30,6 +32,18 @@ namespace PicTureen.Services
         public void ShowMainWindow()
         {
             MainWindow.Show();
+        }
+
+        public void ShowImage(Image image)
+        {
+            var vm = _container.Resolve<FullImageViewModel>();
+            vm.Image = image;
+            var window = new FullImageView
+            {
+                DataContext = vm,
+                Owner = MainWindow
+            };
+            window.ShowDialog();
         }
     }
 }
