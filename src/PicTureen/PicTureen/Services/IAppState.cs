@@ -9,5 +9,7 @@ namespace PicTureen.Services
         ImageViewModel CurrentImage { get; set; }
         event EventHandler CurrentImageChanged;
         event EventHandler CurrentDirectoryChanged;
+        event EventHandler DbChanged;
+        void NotifyDbChanged();
     }
 }

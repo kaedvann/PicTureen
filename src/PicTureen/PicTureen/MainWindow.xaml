@@ -18,7 +18,9 @@
         <Menu>
             <MenuItem Header="Параметры">
                 <MenuItem Header="Корневая директория"
-                          Command="{Binding ChooseDirectoryCommand}"></MenuItem>
+                          Command="{Binding ChooseDirectoryCommand}"
+                          HorizontalContentAlignment="Left"
+                           HorizontalAlignment="Left"></MenuItem>
             </MenuItem>
         </Menu>
         <Grid Row ="1"

@@ -17,7 +17,10 @@ namespace PicTureen.Services
         public ImagesDbContext GetDbContext()
         {
             if (_context == null)
+            {
+                _dbHelper.CreateTables();
                 _context = new ImagesDbContext(_dbHelper);
+            }
             return _context;
         }
     }

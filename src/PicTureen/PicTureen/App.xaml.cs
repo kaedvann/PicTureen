@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
 using Database;
 using Interfaces;
 using Microsoft.Practices.Unity;
@@ -14,6 +16,7 @@ namespace PicTureen
         private readonly IUnityContainer _container = new UnityContainer();
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
             RegisterDependencies();
             _container.Resolve<INavigationService>().ShowMainWindow();
         }
@@ -27,6 +30,7 @@ namespace PicTureen
             _container.RegisterType<ISettingsService, SettingsService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IDbHelper, DbHelper>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IAppState, AppState>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IImageWorker, ImageWorker>(new ContainerControlledLifetimeManager());
         }
     }
 }

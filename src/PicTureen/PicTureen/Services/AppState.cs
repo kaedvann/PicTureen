@@ -30,6 +30,11 @@ namespace PicTureen.Services
 
         public event EventHandler CurrentImageChanged;
         public event EventHandler CurrentDirectoryChanged;
+        public event EventHandler DbChanged;
+        public void NotifyDbChanged()
+        {
+            OnDbChanged();
+        }
 
         protected virtual void OnCurrentDirectoryChanged()
         {
@@ -40,6 +45,12 @@ namespace PicTureen.Services
         protected virtual void OnCurrentImageChanged()
         {
             var handler = CurrentImageChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnDbChanged()
+        {
+            var handler = DbChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
     }

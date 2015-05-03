@@ -12,7 +12,7 @@ namespace MainProjectTests
         public void TestScanning()
         {
             var currentDirectory = TestContext.CurrentContext.TestDirectory;
-            var scanner = new FileScanner();
+            var scanner = new FileScanner(null);
             var task = scanner.ScanDirectory(currentDirectory);
             task.Wait();
             var result = task.Result; 
