@@ -26,6 +26,7 @@ namespace PicTureen
             _container.RegisterType<IContextProvider, ContextProvider>(new ContainerControlledLifetimeManager());
             _container.RegisterType<ISettingsService, SettingsService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IDbHelper, DbHelper>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IAppState, AppState>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -9,7 +9,7 @@ using Database;
 using PicTureen.Support;
 namespace PicTureen.ViewModels
 {
-    class PropertiesViewModel : INotifyPropertyChanged
+    public class PropertiesViewModel : INotifyPropertyChanged
     {
         private string _path;
         private string _name;

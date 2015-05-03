@@ -41,9 +41,12 @@
               Background="Black" 
               ShowsPreview="true"
               Width="4"/>
+            <views:ImagesTreeView Grid.Column="0"
+                                  DataContext="{Binding TreeViewModel}"></views:ImagesTreeView>
             <views:PropertiesView Grid.Column="2"
                                   VerticalAlignment="Center"
-                                  HorizontalAlignment="Center"></views:PropertiesView>
+                                  HorizontalAlignment="Center"
+                                  DataContext="{Binding PropertiesViewModel}"></views:PropertiesView>
         </Grid>
     </Grid>
 </Window>
