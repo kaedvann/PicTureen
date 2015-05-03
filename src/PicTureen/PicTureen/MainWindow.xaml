@@ -9,46 +9,57 @@
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition
-                Height="{Binding MenuHeight}">
-                
-            </RowDefinition>
-            <RowDefinition Height="*">
-            </RowDefinition>
+                Height="{Binding MenuHeight}" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Параметры">
                 <MenuItem Header="Корневая директория"
                           Command="{Binding ChooseDirectoryCommand}"
                           HorizontalContentAlignment="Left"
-                           HorizontalAlignment="Left"></MenuItem>
+                          HorizontalAlignment="Left" />
             </MenuItem>
         </Menu>
-        <Grid Row ="1"
-            ShowGridLines="True">
+        <Grid Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"
+                                  MinWidth="250"
+                                  MaxWidth="300" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*"
+                                  MinWidth="300"
+                                  MaxWidth="350" />
             </Grid.ColumnDefinitions>
-            
-            <GridSplitter Grid.Column="1" 
-              HorizontalAlignment="Left" 
-              VerticalAlignment="Stretch"
-              Background="Black" 
-              ShowsPreview="true"
-              Width="4"/>
-            <GridSplitter Grid.Column="2" 
-              HorizontalAlignment="Left" 
-              VerticalAlignment="Stretch"
-              Background="Black" 
-              ShowsPreview="true"
-              Width="4"/>
-            <views:ImagesTreeView Grid.Column="0"
-                                  DataContext="{Binding TreeViewModel}"></views:ImagesTreeView>
+            <Grid Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <views:ImagesTreeView Grid.Row="0"
+                                  DataContext="{Binding TreeViewModel}" />
+                <views:SearchView Grid.Row="1"></views:SearchView>
+
+            </Grid>
+            <views:GridImagesView DataContext="{Binding ImagePanelViewModel}"
+                                  Grid.Column="1" />
             <views:PropertiesView Grid.Column="2"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Center"
-                                  DataContext="{Binding PropertiesViewModel}"></views:PropertiesView>
+
+                                  DataContext="{Binding PropertiesViewModel}" />
+
+            <GridSplitter Grid.Column="1"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch"
+                          Background="Black"
+                          ShowsPreview="true"
+                          Width="4" />
+            <GridSplitter Grid.Column="2"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch"
+                          Background="Black"
+                          ShowsPreview="true"
+                          Width="4" />
         </Grid>
     </Grid>
 </Window>

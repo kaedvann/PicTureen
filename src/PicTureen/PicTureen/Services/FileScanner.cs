@@ -26,7 +26,8 @@ namespace PicTureen.Services
         public async Task UpdateDatabase(ImagesDbContext context, IEnumerable<string> files)
         {
             await context.Images.LoadAsync();
-            context.Images.RemoveRange(context.Images.Where(i => files.All(f => i.Path != f)));
+            var toRemove = context.Images.ToList().Where(i => !files.Contains(i.Path));
+            context.Images.RemoveRange(toRemove);
             var toAdd = files.Where(f => context.Images.All(i => i.Path != f)).Select(f => _imageWorker.GetImageInfo(f));
             context.Images.AddRange(toAdd);
             await context.SaveChangesAsync();
