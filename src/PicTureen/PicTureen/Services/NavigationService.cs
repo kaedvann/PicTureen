@@ -1,8 +1,10 @@
 ﻿using Microsoft.Practices.Unity;
+using PicTureen.Annotations;
 using PicTureen.ViewModels;
 
 namespace PicTureen.Services
 {
+    [UsedImplicitly]
     public class NavigationService : INavigationService
     {
         private readonly IUnityContainer _container;

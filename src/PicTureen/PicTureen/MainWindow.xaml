@@ -1,7 +1,11 @@
 ﻿<Window x:Class="PicTureen.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PicTureen">
+        xmlns:views="clr-namespace:PicTureen.Views" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:PicTureen.ViewModels"
+        mc:Ignorable="d"
+        Title="PicTureen" d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel }">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition
@@ -11,6 +15,12 @@
             <RowDefinition Height="*">
             </RowDefinition>
         </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Параметры">
+                <MenuItem Header="Корневая директория"
+                          Command="{Binding ChooseDirectoryCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
         <Grid Row ="1"
             ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -31,8 +41,9 @@
               Background="Black" 
               ShowsPreview="true"
               Width="4"/>
-            
+            <views:PropertiesView Grid.Column="2"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"></views:PropertiesView>
         </Grid>
-        <UserControl></UserControl>
     </Grid>
 </Window>
