@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using Database;
+using PicTureen.EventArguments;
 using PicTureen.ViewModels;
 
 namespace PicTureen.Services
@@ -31,9 +34,16 @@ namespace PicTureen.Services
         public event EventHandler CurrentImageChanged;
         public event EventHandler CurrentDirectoryChanged;
         public event EventHandler DbChanged;
+        public event EventHandler<ImagesEventArgs> ImageDisplayRequested;
+
         public void NotifyDbChanged()
         {
             OnDbChanged();
+        }
+
+        public void RequestImagesDisplay(IEnumerable<Image> images)
+        {
+            OnImageDisplayRequested(new ImagesEventArgs(images));
         }
 
         protected virtual void OnCurrentDirectoryChanged()
@@ -52,6 +62,12 @@ namespace PicTureen.Services
         {
             var handler = DbChanged;
             if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnImageDisplayRequested(ImagesEventArgs e)
+        {
+            var handler = ImageDisplayRequested;
+            if (handler != null) handler(this, e);
         }
     }
 }
