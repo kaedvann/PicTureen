@@ -12,6 +12,8 @@
         ShowInTaskbar="False"
         WindowState="Maximized">
     <Grid>
-        <Image Source="{Binding Path=Image.Path}"></Image>
+        <Image Source="{Binding Path=Image.Path}"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"></Image>
     </Grid>
 </Window>

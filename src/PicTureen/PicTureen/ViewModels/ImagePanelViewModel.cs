@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Caliburn.PresentationFramework;
-using Database;
 using PicTureen.Services;
 using PicTureen.Support;
 

@@ -4,9 +4,10 @@ using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
-using PicTureen.Annotations;
 using Database;
+using PicTureen.Annotations;
 using PicTureen.Support;
+
 namespace PicTureen.ViewModels
 {
     public class PropertiesViewModel : INotifyPropertyChanged

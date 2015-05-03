@@ -1,6 +1,4 @@
-﻿using PicTureen.ViewModels;
-
-namespace PicTureen
+﻿namespace PicTureen
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
