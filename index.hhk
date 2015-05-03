@@ -5,8 +5,9 @@
 </OBJECT>
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#acd445057602f70da5393e216d074498a"><param name="Name" value="_additionalDataLoaded"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a3be36decde170ca73c0e9f1b43513784"><param name="Name" value="_appState"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a566c5a72a2d7b95ad5b6e405ee303459"><param name="Name" value="_appState"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a566c5a72a2d7b95ad5b6e405ee303459"><param name="Name" value="PicTureen::ViewModels::ImagePanelViewModel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a3be36decde170ca73c0e9f1b43513784"><param name="Name" value="PicTureen::ViewModels::MainWindowViewModel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_tree_view_model.html#ad5a0aa6ab5fffc0ed43e0bae275a87e8"><param name="Name" value="PicTureen::ViewModels::TreeViewModel"></OBJECT>
   </UL>
@@ -20,7 +21,11 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a788b75c36bead4f1ca4ab7957769dea1"><param name="Name" value="PicTureen::ViewModels::MainWindowViewModel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_services_1_1_context_provider.html#a955c0eee1a3cd79bffa523e2f03413f6"><param name="Name" value="_context"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ae294b5512c7df37be6b5fc99087ecf97"><param name="Name" value="_contextProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a0c78f112473981bfe1e6202eec654bcd"><param name="Name" value="_contextProvider"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a0c78f112473981bfe1e6202eec654bcd"><param name="Name" value="PicTureen::ViewModels::ImagePanelViewModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ae294b5512c7df37be6b5fc99087ecf97"><param name="Name" value="PicTureen::ViewModels::MainWindowViewModel"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#ad0f2eac0fad4b64ebc99e1968c3be861"><param name="Name" value="_creationDate"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_services_1_1_app_state.html#a85e922f3f8e641697dcd8354c4e05f49"><param name="Name" value="_currentDirectory"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_services_1_1_app_state.html#a90829fca6044fc344ab7052e22c00488"><param name="Name" value="_currentImage"></OBJECT>
@@ -31,7 +36,12 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ae233717f1766f61715591aa3d7fed583"><param name="Name" value="_fileScanner"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a568cc0bf38787eeb8aea2e1506846091"><param name="Name" value="_height"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a2a4f74dad44d3d840e69d8cfc1e5e9a5"><param name="Name" value="_horizontalDpi"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a23917d2888fe1f1c8f6b6dd584756b65"><param name="Name" value="_image"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#ab7c991ad63f1b071d37fb34235818f5d"><param name="Name" value="_image"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#ab7c991ad63f1b071d37fb34235818f5d"><param name="Name" value="PicTureen::ViewModels::ImageViewModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a23917d2888fe1f1c8f6b6dd584756b65"><param name="Name" value="PicTureen::ViewModels::PropertiesViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a60730ee462c8d9b728ee849639eedcf3"><param name="Name" value="_images"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_services_1_1_file_scanner.html#a2733c470b472082dcc73f82170eaeb4e"><param name="Name" value="_imageWorker"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_search_view_model.html#a4fb1b2327f09e9ecfb1361fed882a934"><param name="Name" value="_inSelectedFolder"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_search_view_model.html#a3561c81bc4234bf13bcc104cc3c770c0"><param name="Name" value="_isRegexp"></OBJECT>
@@ -73,6 +83,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#aa642601946985db70071be319adf9788"><param name="Name" value="_verticalDpi"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a834a090940fb906e5d0ae7e031d4873d"><param name="Name" value="_width"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_app.html#a24b790fdda2f6a97cb08201640eac4e7"><param name="Name" value="App_OnStartup"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#ac5e4fef5c6aab16f151c2446fe55752f"><param name="Name" value="AppStateOnDbChanged"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_tree_view_model.html#a6043242ad277dd98b77fab936880c027"><param name="Name" value="BuildTree"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_support_1_1_delegate_command.html#a28e6908d396c3d5e587cc22631ce07cc"><param name="Name" value="CanExecute"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_support_1_1_delegate_command.html#a528b24bf9ad7f7e07be76ad0259fe541"><param name="Name" value="CanExecuteChanged"></OBJECT>
@@ -189,6 +200,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_pic_tureen_1_1_services_1_1_i_image_worker.html#af5368be87d28f617af381793d0ae68dc"><param name="Name" value="PicTureen::Services::IImageWorker"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_services_1_1_image_worker.html#afc8b642acc19696ca272e8aab3c8a1b1"><param name="Name" value="PicTureen::Services::ImageWorker"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_views_1_1_grid_images_view.html#ab578b2dda8c414fde071a286bec0749a"><param name="Name" value="GridImagesView"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_image.html#a7dc88fafaf2b602d1b44119556e9a23f"><param name="Name" value="Height"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_image.html#a7dc88fafaf2b602d1b44119556e9a23f"><param name="Name" value="Database::Image"></OBJECT>
@@ -201,10 +213,16 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_tag.html#a94c921e548ae90ee61078bdc341f531a"><param name="Name" value="Database::Tag"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_image.html#a1a034bd17281c228097e887f6017fb57"><param name="Name" value="Image"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a4c490e5a019b2f028da2ad3ebd93a3f9"><param name="Name" value="ImagePanelViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a4c490e5a019b2f028da2ad3ebd93a3f9"><param name="Name" value="PicTureen::ViewModels::ImagePanelViewModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ae7f33cfe490566d7e0a2a0e9da3d0998"><param name="Name" value="PicTureen::ViewModels::MainWindowViewModel"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_images_db_context.html#af641f1548d2a05fef4f3805c7bc69a36"><param name="Name" value="Images"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_images_db_context.html#af641f1548d2a05fef4f3805c7bc69a36"><param name="Name" value="Database::ImagesDbContext"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_tag.html#ab68a2103ca4f2a46f7384cbfd35d9007"><param name="Name" value="Database::Tag"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a2dd15617e8b211203368f8bf502e5e27"><param name="Name" value="PicTureen::ViewModels::ImagePanelViewModel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_images_db_context.html#a7b163cdec2871b3814d2d5ebb6060f2d"><param name="Name" value="ImagesDbContext"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_interfaces_1_1_i_settings_service.html#aaa33371d3d169a395787860a88d9ebc9"><param name="Name" value="ImagesDirectory"></OBJECT>
@@ -264,6 +282,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_image.html#a92d2d6bce13e916b2c59d431bf7698de"><param name="Name" value="Path"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_image.html#a92d2d6bce13e916b2c59d431bf7698de"><param name="Name" value="Database::Image"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#a5134d6e4495ae52b0c1fa81a1864b685"><param name="Name" value="PicTureen::ViewModels::ImageViewModel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_properties_view_model.html#a22424ce0739d80f50b41ddf6225bf2df"><param name="Name" value="PicTureen::ViewModels::PropertiesViewModel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_pic_tureen.html"><param name="Name" value="PicTureen"></OBJECT>
@@ -375,9 +394,20 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_support_1_1_delegate_command.html#a6108c832ef5ccf6ab5aed21294f7ae95"><param name="Name" value="RaiseCanExecuteChanged"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_pic_tureen_1_1_view_models.html"><param name="Name" value="PicTureen::ViewModels"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html"><param name="Name" value="PicTureen::ViewModels::ImagePanelViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a566c5a72a2d7b95ad5b6e405ee303459"><param name="Name" value="_appState"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a0c78f112473981bfe1e6202eec654bcd"><param name="Name" value="_contextProvider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a60730ee462c8d9b728ee849639eedcf3"><param name="Name" value="_images"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#ac5e4fef5c6aab16f151c2446fe55752f"><param name="Name" value="AppStateOnDbChanged"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a4c490e5a019b2f028da2ad3ebd93a3f9"><param name="Name" value="ImagePanelViewModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_panel_view_model.html#a2dd15617e8b211203368f8bf502e5e27"><param name="Name" value="Images"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html"><param name="Name" value="PicTureen::ViewModels::ImageViewModel"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#ab7c991ad63f1b071d37fb34235818f5d"><param name="Name" value="_image"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#ae37ca34ced2385624897414e7b5dc14d"><param name="Name" value="ImageViewModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_image_view_model.html#a5134d6e4495ae52b0c1fa81a1864b685"><param name="Name" value="Path"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html"><param name="Name" value="PicTureen::ViewModels::MainWindowViewModel"></OBJECT>
   <UL>
@@ -391,6 +421,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ab2bb5dc366f0c26f2147322d8781d5a6"><param name="Name" value="ChooseDirectory"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a03ecf82e4cc815c8d218e4ad91a2b53c"><param name="Name" value="ChooseDirectoryCommand"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a2d35c320888389a385415d60a30c0fa6"><param name="Name" value="CreateCommands"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#ae7f33cfe490566d7e0a2a0e9da3d0998"><param name="Name" value="ImagePanelViewModel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a7006058bb50fcf4c4ffedac02a814a76"><param name="Name" value="InitializeViews"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#afc1e4cc223c3a07c34c4ddf793bd4d95"><param name="Name" value="MainWindowViewModel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_main_window_view_model.html#a86181c7564401e698a1c3ba9f428d09a"><param name="Name" value="MenuHeight"></OBJECT>
@@ -502,6 +533,10 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_view_models_1_1_tree_view_model.html#a203dee88043e8ed4b09b262f7a949797"><param name="Name" value="TreeViewModel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_pic_tureen_1_1_views.html"><param name="Name" value="PicTureen::Views"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_views_1_1_grid_images_view.html"><param name="Name" value="PicTureen::Views::GridImagesView"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_views_1_1_grid_images_view.html#ab578b2dda8c414fde071a286bec0749a"><param name="Name" value="GridImagesView"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_views_1_1_images_tree_view.html"><param name="Name" value="PicTureen::Views::ImagesTreeView"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_pic_tureen_1_1_views_1_1_images_tree_view.html#a720b17035079468ca874094dcae848b5"><param name="Name" value="ImagesTreeView"></OBJECT>
