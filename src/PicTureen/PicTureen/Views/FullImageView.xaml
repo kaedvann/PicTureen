@@ -4,16 +4,91 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:PicTureen.ViewModels"
+        xmlns:support="clr-namespace:PicTureen.Support"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="FullImageView" 
         Height="300" 
         Width="300" 
         d:DataContext="{d:DesignInstance viewModels:FullImageViewModel}"
         ShowInTaskbar="False"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
         <Image Source="{Binding Path=Image.Path}"
+               Grid.Row="0"
+               x:Name ="DispImage"
                VerticalAlignment="Center"
-               HorizontalAlignment="Center"></Image>
+               RenderTransformOrigin="0.5,0.5"
+               HorizontalAlignment="Center"
+               IsManipulationEnabled="True">
+            <Image.InputBindings>
+                
+                <MouseBinding Command="{Binding Path=WheelUpCommand}">
+                    <MouseBinding.Gesture>
+                        <support:MouseWheelUp></support:MouseWheelUp>
+                    </MouseBinding.Gesture>
+                </MouseBinding>
+
+                <MouseBinding Command="{Binding Path=WheelDownCommand}">
+                    <MouseBinding.Gesture>
+                        <support:MouseWheelDown></support:MouseWheelDown>
+                    </MouseBinding.Gesture>
+                </MouseBinding>
+            </Image.InputBindings>
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="{Binding Path=RotateAngle}"></RotateTransform>
+                    <ScaleTransform ScaleX="{Binding Path=ScaleFactor}"
+                                    ScaleY="{Binding Path=ScaleFactor}"></ScaleTransform>
+                    <TranslateTransform x:Name="TranslateTransform"
+                        X="{Binding Path=MoveX}"
+                                        Y="{Binding Path=MoveY}"></TranslateTransform>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ManipulationDelta">
+                    <support:InvokeCommandAction Command="{Binding Path=MoveCommand}" ></support:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+        <Grid x:Name="buttonGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ButtonRotateLeft"
+                    Content="RL"
+                    Command="{Binding Path=RotateLeftCommand}"
+                    Grid.Column="0">
+            </Button>
+            <Button x:Name="ButtonRotateRight"
+                    Command="{Binding Path=RotateRightCommand}"
+                    Content="RR"
+                    Grid.Column="1">
+            </Button>
+            <Button x:Name="ButtonNext"
+                    Content="Next"
+                    Grid.Column="2">
+            </Button>
+            <Button x:Name="ButtonPrev"
+                    Content="Prev"
+                    Grid.Column="3">
+            </Button>
+            <Button x:Name="ButtonDelete"
+                    Content="Delete"
+                    Grid.Column="5">
+                
+            </Button>
+        </Grid>
     </Grid>
 </Window>

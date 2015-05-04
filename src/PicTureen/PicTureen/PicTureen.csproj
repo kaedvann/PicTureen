@@ -133,6 +133,9 @@
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Support\DelegateCommand.cs" />
     <Compile Include="Support\InvokeCommandAction.cs" />
+    <Compile Include="Support\MouseMove.cs" />
+    <Compile Include="Support\MouseWheelDown.cs" />
+    <Compile Include="Support\MouseWheelUp.cs" />
     <Compile Include="Support\PathToBitmapConverter.cs" />
     <Compile Include="ViewModels\FullImageViewModel.cs" />
     <Compile Include="ViewModels\ImagePanelViewModel.cs" />
