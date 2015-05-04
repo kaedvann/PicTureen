@@ -3,254 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:search="clr-namespace:PicTureen.ViewModels.Search"
              mc:Ignorable="d"
-             d:DesignHeight="220" d:DesignWidth="250">
-
-    <!--<UserControl.Resources>
-        <Style x:Key="TreeViewItemFocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Border>
-                            <Rectangle Margin="0,0,0,0"
-             StrokeThickness="5"
-             Stroke="Black"
-             StrokeDashArray="1 2"
-             Opacity="0"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-            <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-            <Setter Property="Padding" Value="1,0,0,0"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
-            <Setter Property="HeaderTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox Name="chk" Margin="2" Tag="{Binding}" >
-                            </CheckBox>
-
-                            <TextBlock Text="{Binding}"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Border Name="Bd"
-                              Grid.Column="1"                                
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              Padding="{TemplateBinding Padding}">
-                                <ContentPresenter x:Name="PART_Header"
-                                        ContentSource="Header"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
-                            </Border>
-                            <ItemsPresenter x:Name="ItemsHost"
-                          Grid.Row="1"
-                          Grid.Column="1"
-                          Grid.ColumnSpan="2"/>
-                        </Grid>
-
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsExpanded" Value="false">
-                                <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed"/>
-                            </Trigger>
-
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsSelected" Value="true"/>
-                                    <Condition Property="IsExpanded" Value="false"/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="ItemsHost" Property="Visibility" Value="Visible"/>
-                            </MultiTrigger>
-                            
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsSelected"  Value="true"/>
-                                    <Condition Property="IsExpanded" Value="true"/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed"/>
-                            </MultiTrigger>
-
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="HasHeader" Value="false"/>
-                                    <Condition Property="Width" Value="Auto"/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="PART_Header" Property="MinWidth" Value="75"/>
-                            </MultiTrigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="HasHeader" Value="false"/>
-                                    <Condition Property="Height" Value="Auto"/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="PART_Header" Property="MinHeight" Value="19"/>
-                            </MultiTrigger>
-                            
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>-->
-
-
-
-
-
+             d:DesignHeight="220" d:DesignWidth="250"
+             d:DataContext="{d:DesignInstance search:SearchViewModel}">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <TextBox Grid.Row="0"
-                 Text="{Binding Path=SearchString}" />
-
-        <TreeView Name="tvSearchParameters" Grid.Row="1">
-            <TreeView.Resources>
-                <Style x:Key="TreeViewItemFocusVisual">
-                    <Setter Property="Control.Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Border>
-                                    <Rectangle Margin="0,0,0,0"
-                                         StrokeThickness="5"
-                                         Stroke="Black"
-                                         StrokeDashArray="1 2"
-                                         Opacity="0"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-
-                <Style TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox Name="chk" Margin="2" Tag="{Binding}" >
-                                    </CheckBox>
-                                    <TextBlock Text="{Binding}"></TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TreeView.Resources>
-
-            <TreeViewItem Header="Name" 
-                          IsExpanded="False"
-                          x:Name="NameItem">
-             
-                <TreeViewItem Header="Fullname only"></TreeViewItem>
-                <TreeViewItem Header="Contains"></TreeViewItem>
-                <TreeViewItem Header="Not contains"></TreeViewItem>
-            </TreeViewItem>
-
-            <TreeViewItem Header="Tags"  IsExpanded="False">
-                <TreeViewItem Header="Full word only"></TreeViewItem>
-                <TreeViewItem Header="Contains"></TreeViewItem>
-                <TreeViewItem Header="Not contains"></TreeViewItem>
-                <TreeViewItem Header="Without tags"></TreeViewItem>
-            </TreeViewItem>
-
-            <TreeViewItem Header="Desciption"  IsExpanded="False">
-                <TreeViewItem Header="Full word only"></TreeViewItem>
-                <TreeViewItem Header="Contains"></TreeViewItem>
-                <TreeViewItem Header="Not contains"></TreeViewItem>
-                <TreeViewItem Header="Without description"></TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="Rating"  IsExpanded="False">
-                <TreeViewItem Header="Without rating"></TreeViewItem>
-                <TreeViewItem Header="1"></TreeViewItem>
-                <TreeViewItem Header="2"></TreeViewItem>
-                <TreeViewItem Header="3"></TreeViewItem>
-                <TreeViewItem Header="4"></TreeViewItem>
-                <TreeViewItem Header="5"></TreeViewItem>
-
-              
-            </TreeViewItem>
-            
-        </TreeView>
-
-        <Grid x:Name="DimensionsGrid" Row="3"
-                VerticalAlignment="Bottom">
-            <Grid.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ShowDimensions}"
-                                     Value="true">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Visible" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding ShowDimensions}"
-                                     Value="false">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Collapsed" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-
-
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="83*" />
-                <ColumnDefinition Width="100*" />
-                <ColumnDefinition Width="100*" />
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Width:" Grid.ColumnSpan="2" />
-            <Label Grid.Row="1" Grid.Column="0" Content="Height:" Grid.ColumnSpan="2" />
-
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="3"
-                     Text="{Binding Path=SearchMinWidth}" />
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="3"
-                     Text="{Binding Path=SearchMinHeight}" />
-            <TextBox Grid.Column="2" Grid.Row="0" Margin="3"
-                     Text="{Binding Path=SearchMaxWidth}" />
-            <TextBox Grid.Column="2" Grid.Row="1" Margin="3"
-                     Text="{Binding Path=SearchMaxHeight}" />
-        </Grid>
-        <Button x:Name="Dimensions"
-                HorizontalContentAlignment="Left"
-                Grid.Row="2"
-                Height="Auto"
-                VerticalAlignment="Top"
-                Content="           Dimensions"
-                Command="{Binding ShowHideDimensionsCommand}" />
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin"
+                        Value="10"/>
+                <Setter Property="VerticalContentAlignment"
+                        Value="Center"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin"
+                        Value="5"/>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Name" />
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchName}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   Text="Tags" />
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchTags}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Description" />
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchDescription}" />
+
+
+
+            <TextBlock Grid.Row="4"
+                       Grid.Column="0"
+                       Text="Width:" />
+            <TextBlock Grid.Row="5"
+                       Grid.Column="0"
+                       Text="Height:" />
+            <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Rating:" />
+            <TextBlock Grid.Row="6"
+                       Grid.Column="0"
+                       Text="Date:" />
+            
+            <TextBox Grid.Column="1"
+                     Grid.Row="3"
+                     Text="{Binding Path=SearchMinRating}" />
+            <TextBox Grid.Column="2"
+                     Grid.Row="3"
+                     Text="{Binding Path=SearchMaxRating}" />
+            <TextBox Grid.Column="1"
+                     Grid.Row="4"
+                     Text="{Binding Path=SearchMinWidth}" />
+            <TextBox Grid.Column="1"
+                     Grid.Row="5"
+                     Text="{Binding Path=SearchMinHeight}" />
+            <TextBox Grid.Column="2"
+                     Grid.Row="4"
+                     Text="{Binding Path=SearchMaxWidth}" />
+            <TextBox Grid.Column="2"
+                     Grid.Row="5"
+                     Text="{Binding Path=SearchMaxHeight}" />
+
+        <Button Grid.ColumnSpan="3" 
+                Grid.Column="0"
+                Grid.Row="6"
+                Content="Search"
+                Command="{Binding SearchCommand}" />
+
     </Grid>
 </UserControl>

@@ -10,6 +10,7 @@ namespace PicTureen.Views
         public SearchView()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:PicTureen.ViewModels"
         mc:Ignorable="d"
+        MinHeight="600"
+        MinWidth="800"
         Title="PicTureen" d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel }">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -32,8 +34,8 @@
             </Grid.ColumnDefinitions>
             <Grid Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition MinHeight="300"/>
+                    <RowDefinition Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
                 <views:ImagesTreeView Grid.Row="0"
                                   DataContext="{Binding TreeViewModel}" />
