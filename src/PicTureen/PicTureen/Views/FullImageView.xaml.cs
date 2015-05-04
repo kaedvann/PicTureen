@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using PicTureen.ViewModels;
 
 namespace PicTureen.Views
 {
@@ -11,5 +15,7 @@ namespace PicTureen.Views
         {
             InitializeComponent();
         }
+
+
     }
 }
