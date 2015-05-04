@@ -43,9 +43,9 @@ namespace PicTureen.ViewModels
 
         private void InitializeViews()
         {
+            ImagePanelViewModel = _container.Resolve<ImagePanelViewModel>();
             TreeViewModel = _container.Resolve<TreeViewModel>();
             PropertiesViewModel = _container.Resolve<PropertiesViewModel>();
-            ImagePanelViewModel = _container.Resolve<ImagePanelViewModel>();
         }
 
         public TreeViewModel TreeViewModel { get; set; }

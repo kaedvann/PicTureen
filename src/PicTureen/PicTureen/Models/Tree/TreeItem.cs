@@ -20,9 +20,11 @@ namespace PicTureen.Models.Tree
 
     public class ImageTreeItem : TreeItem
     {
+        public Image Image { get; private set; }
         public override string Title { get { return Path.GetFileNameWithoutExtension(FullPath); } }
         public ImageTreeItem(Image image) : base(image.Path)
         {
+            Image = image;
         }
     }
 

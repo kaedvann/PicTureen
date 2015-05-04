@@ -33,7 +33,7 @@
                                       Command="{Binding Path=DataContext.OpenImageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                       CommandParameter="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}}"></MouseBinding>
                     </Grid.InputBindings>
-                    <Image Source="{Binding Path}" />
+                    <Image Source="{Binding Path, IsAsync=True}" />
                     <TextBlock Grid.Row="1"
                                Text="{Binding Path}" />
                     
