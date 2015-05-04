@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Database;
 
 namespace PicTureen.ViewModels.Search
@@ -71,7 +72,9 @@ namespace PicTureen.ViewModels.Search
 
         private bool CheckTags(ICollection<Tag> tags)
         {
-            return true;
+
+            var splitTags = Tags.Split(';').Select(t => t.Trim().ToLower()).Where(s => !string.IsNullOrWhiteSpace(s));
+            return splitTags.All(tag => tags.Any(t => t.Name == tag));
         }
 
         private bool CheckName(string path)

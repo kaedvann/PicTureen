@@ -36,7 +36,7 @@
                     </Grid.InputBindings>
                     <Image Source="{Binding Path, IsAsync=True, Converter={StaticResource PreviewBitmapConverter}}" />
                     <TextBlock Grid.Row="1"
-                               Text="{Binding Path}" />
+                               Text="{Binding Name}" />
                     
                 </Grid>
             </DataTemplate>

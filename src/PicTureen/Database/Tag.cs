@@ -19,7 +19,7 @@ namespace Database
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return string.Equals(Name, other.Name) && Id == other.Id;
+            return string.Equals(Name, other.Name);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Database
         {
             unchecked
             {
-                return (Name.GetHashCode()*397) ^ Id.GetHashCode();
+                return (Name.GetHashCode()*397);
             }
         }
 

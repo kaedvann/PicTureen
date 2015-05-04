@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Runtime.CompilerServices;
+using System.Linq;
+using System.Windows;
 using Caliburn.PresentationFramework;
 using Database;
-using PicTureen.Annotations;
 using PicTureen.Services;
 using PicTureen.Support;
 
@@ -20,36 +19,16 @@ namespace PicTureen.ViewModels
         private string _name;
         private int _width;
         private int _height;
-        private int _rating;
+        private string _rating;
         private string _description;
         private double _size;
         private DateTime _creationDate;
         private PixelFormat _colourDepth;
         private float _verticalDpi;
         private float _horizontalDpi;
-        private DelegateCommand _showMoreCommand;
-        private ModelState _state;
-        private bool _additionalDataLoaded = false;
-        private Image _image;
-
-        public enum ModelState
-        {
-            ShowingAll,
-            ShowingLittle
-        };
-
-        public ModelState State
-        {
-            get { return _state; }
-            set
-            {
-                if (value == _state) return;
-                _state = value;
-                NotifyOfPropertyChange(()=>State);
-            }
-        }
-
-        public DelegateCommand ShowMoreCommand { get; set; }
+        private Image _image = new Image();
+        private string _tags;
+        private bool _isChanged;
 
         public DelegateCommand SaveCommand { get; set; }
 
@@ -98,15 +77,25 @@ namespace PicTureen.ViewModels
             }
         }
 
-        public BindableCollection<Tag> Tags { get; set; }
+        public string Tags
+        {
+            get { return _tags; }
+            set
+            {
+                _tags = value;
+                NotifyOfPropertyChange(()=>Tags);
+                IsChanged = true;
+            }
+        }
 
-        public int Rating
+        public string Rating
         {
             get { return _rating; }
             set
             {
                 if (value == _rating) return;
                 _rating = value;
+                IsChanged = true;
                 NotifyOfPropertyChange(()=>Rating);
             }
         }
@@ -118,6 +107,7 @@ namespace PicTureen.ViewModels
             {
                 if (value == _description) return;
                 _description = value;
+                IsChanged = true;
                 NotifyOfPropertyChange(()=>Description);
             }
         }
@@ -179,12 +169,9 @@ namespace PicTureen.ViewModels
         // Name, Resolution, Rating, Tags, Description, Size, Creation date, Colour depth, vert dpi, horiz dpi
         public PropertiesViewModel(IAppState appState, IContextProvider contextProvider)
         {
-            Tags = new BindableCollection<Tag>();
             _appState = appState;
             _contextProvider = contextProvider;
-
-            ShowMoreCommand = new DelegateCommand(ShowMore);
-            SaveCommand = new DelegateCommand(SaveImage);
+            SaveCommand = new DelegateCommand(SaveImage, () => IsChanged);
 
             _appState.CurrentImageChanged += AppStateOnCurrentImageChanged;
         }
@@ -199,47 +186,91 @@ namespace PicTureen.ViewModels
             get { return _image; }
             set
             {
-                if (value != null)
-                    _image = value;
-                else
-                {
-                    _image = new Image();
-                } 
+                _image = value ?? new Image();
                 Name = System.IO.Path.GetFileName(_image.Path);
                 Path = _image.Path;
                 Description = _image.Description;
                 Width = _image.Width;
                 Height = _image.Height;
-                Tags.Clear();
-                Tags.AddRange(_image.Tags);
-                Rating = _image.Rating;
+                Rating = _image.Rating.ToString();
+                Tags = TagsToString(_image.Tags);
+                if (!string.IsNullOrEmpty(_image.Path))
+                    LoadAdditionalData();
+                IsChanged = false;
                 NotifyOfPropertyChange(()=>Image);
+                NotifyOfPropertyChange(() => IsImageSelected);
             }
+        }
+
+        public bool IsChanged
+        {
+            get { return _isChanged; }
+            set
+            {
+                _isChanged = value; 
+                NotifyOfPropertyChange(()=>IsChanged);
+                SaveCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        private string TagsToString(IEnumerable<Tag> tags )
+        {
+            return tags.Aggregate("", (s, tag) => s += tag.Name + "; ");
+        }
+
+        public bool IsImageSelected
+        {
+            get { return !string.IsNullOrEmpty(Image.Path); }
         }
 
 
         // name, rating, tags, description
         private void SaveImage()
         {
-            throw new NotImplementedException();
+            try
+            {
+                int rating = int.Parse(Rating);
+                if (rating < 0 || rating > 5)
+                    throw new ArgumentException();
+                var tags = StringToTags(Tags);
+                _image.Tags.Clear();
+                foreach (var tag in tags)
+                {
+                    _image.Tags.Add(tag);
+                }
+                _image.Description = Description;
+                _image.Rating = rating;
+                _contextProvider.GetDbContext().SaveChanges();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Incorrect parameters");
+            }
         }
 
-
-        private void ShowMore()
+        private IEnumerable<Tag> StringToTags(string tags)
         {
-            if (_state == ModelState.ShowingAll)
-            {
-                _state = ModelState.ShowingLittle;
-            }
-            else
-            {
-                if (!_additionalDataLoaded)
-                    LoadAdditionalData();
-                _state = ModelState.ShowingAll;
-            }
+            var context = _contextProvider.GetDbContext();
+            var splitTags = tags.Split(';').Select(t => t.Trim().ToLower()).Where(s => !string.IsNullOrWhiteSpace(s));
+            var result = new List<Tag>();
+
+                foreach (var splitTag in splitTags)
+                {
+                    var dbTag =
+                        context.Tags.FirstOrDefault(
+                            t => t.Name== splitTag);
+                    if (dbTag == null)
+                    {
+                        dbTag = context.Tags.Create();
+                        dbTag.Name = splitTag;
+                    }
+                    result.Add(dbTag);
+                }
+      
+            return result;
         }
 
-        // Size, Creation date, Colour depth, vert dpi, horiz dpi
+
         private void LoadAdditionalData()
         {
             FileInfo inf = new FileInfo(Path);
@@ -249,7 +280,6 @@ namespace PicTureen.ViewModels
             ColourDepth = im.PixelFormat;
             VerticalDpi = im.VerticalResolution;
             HorizontalDpi = im.HorizontalResolution;
-            _additionalDataLoaded = true;
         }
     }
 }
