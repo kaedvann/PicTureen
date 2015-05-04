@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Caliburn.PresentationFramework;
 using Database;
 using PicTureen.Support;
+using Xceed.Wpf.Toolkit.Zoombox;
 
 namespace PicTureen.ViewModels
 {
@@ -64,6 +65,7 @@ namespace PicTureen.ViewModels
 
         public FullImageViewModel()
         {
+            FitCommand = new DelegateCommand(Fit);
             RotateLeftCommand = new DelegateCommand(RotateLeft);
             RotateRightCommand = new DelegateCommand(RotateRight);
             NextImageCommand = new DelegateCommand(NextImage);
@@ -76,7 +78,15 @@ namespace PicTureen.ViewModels
             ScaleFactor = 1;
         }
 
+        private void Fit(object obj)
+        {
+            (obj as Zoombox).FitToBounds();
+        }
+
         public DelegateCommand MouseDownCommand { get; set; }
+
+        public DelegateCommand FitCommand { get; set; }
+
         private void Move(object obj)
         {
             Debugger.Break();
