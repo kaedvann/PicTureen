@@ -9,7 +9,7 @@ namespace PicTureen.Services
     public interface IAppState
     {
         string CurrentDirectory { get; set; }
-        ImageViewModel CurrentImage { get; set; }
+        Image CurrentImage { get; set; }
         event EventHandler CurrentImageChanged;
         event EventHandler CurrentDirectoryChanged;
         event EventHandler DbChanged;

@@ -15,6 +15,7 @@ namespace PicTureen.ViewModels
         private readonly IContextProvider _contextProvider;
         private readonly INavigationService _navigationService;
         private BindableCollection<ImageViewModel> _images;
+        private ImageViewModel _selectedImage;
 
         public BindableCollection<ImageViewModel> Images
         {
@@ -23,6 +24,18 @@ namespace PicTureen.ViewModels
         }
 
         public DelegateCommand OpenImageCommand { get; set; }
+
+        public ImageViewModel SelectedImage
+        {
+            get { return _selectedImage; }
+            set
+            {
+                _selectedImage = value;
+                
+                _appState.CurrentImage = _selectedImage == null? null : _selectedImage.Image;
+                NotifyOfPropertyChange(()=>SelectedImage);
+            }
+        }
 
         public ImagePanelViewModel(IAppState appState, IContextProvider contextProvider, INavigationService navigationService)
         {

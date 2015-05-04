@@ -8,6 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance viewModels:ImagePanelViewModel}">
     <ListView ItemsSource="{Binding Images}"
+              SelectedItem="{Binding SelectedImage}"
               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
@@ -33,7 +34,7 @@
                                       Command="{Binding Path=DataContext.OpenImageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                       CommandParameter="{Binding Path=DataContext, RelativeSource={RelativeSource TemplatedParent}}"></MouseBinding>
                     </Grid.InputBindings>
-                    <Image Source="{Binding Path, IsAsync=True}" />
+                    <Image Source="{Binding Path, IsAsync=True, Converter={StaticResource PreviewBitmapConverter}}" />
                     <TextBlock Grid.Row="1"
                                Text="{Binding Path}" />
                     
