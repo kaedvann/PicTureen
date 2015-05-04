@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using Database;
+using PicTureen.EventArguments;
 using PicTureen.ViewModels;
 
 namespace PicTureen.Services
@@ -6,7 +10,7 @@ namespace PicTureen.Services
     public class AppState : IAppState
     {
         private string _currentDirectory;
-        private ImageViewModel _currentImage;
+        private Image _currentImage;
 
         public string CurrentDirectory
         {
@@ -18,7 +22,7 @@ namespace PicTureen.Services
             }
         }
 
-        public ImageViewModel CurrentImage
+        public Image CurrentImage
         {
             get { return _currentImage; }
             set
@@ -31,9 +35,16 @@ namespace PicTureen.Services
         public event EventHandler CurrentImageChanged;
         public event EventHandler CurrentDirectoryChanged;
         public event EventHandler DbChanged;
+        public event EventHandler<ImagesEventArgs> ImageDisplayRequested;
+
         public void NotifyDbChanged()
         {
             OnDbChanged();
+        }
+
+        public void RequestImagesDisplay(IEnumerable<Image> images)
+        {
+            OnImageDisplayRequested(new ImagesEventArgs(images.ToArray()));
         }
 
         protected virtual void OnCurrentDirectoryChanged()
@@ -52,6 +63,12 @@ namespace PicTureen.Services
         {
             var handler = DbChanged;
             if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnImageDisplayRequested(ImagesEventArgs e)
+        {
+            var handler = ImageDisplayRequested;
+            if (handler != null) handler(this, e);
         }
     }
 }

@@ -99,6 +99,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -116,6 +117,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EventArguments\ImagesEventArgs.cs" />
     <Compile Include="Models\Tree\TreeItem.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\AppState.cs" />
@@ -130,6 +132,8 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Support\DelegateCommand.cs" />
+    <Compile Include="Support\InvokeCommandAction.cs" />
+    <Compile Include="Support\PathToBitmapConverter.cs" />
     <Compile Include="ViewModels\FullImageViewModel.cs" />
     <Compile Include="ViewModels\ImagePanelViewModel.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />

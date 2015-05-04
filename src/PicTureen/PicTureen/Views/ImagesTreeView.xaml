@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:PicTureen.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:support="clr-namespace:PicTureen.Support"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance viewModels:TreeViewModel}">
@@ -15,5 +17,10 @@
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </TreeView.Resources>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="SelectedItemChanged">
+                <support:InvokeCommandAction Command="{Binding HandleSelectionChangeCommand}"></support:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
     </TreeView>
 </UserControl>
