@@ -37,7 +37,10 @@
                 </Grid.RowDefinitions>
                 <views:ImagesTreeView Grid.Row="0"
                                   DataContext="{Binding TreeViewModel}" />
-                <views:SearchView Grid.Row="1"></views:SearchView>
+                <views:SearchView Grid.Row="1"
+                                  DataContext="{Binding SearchViewModel}">
+                    
+                </views:SearchView>
 
             </Grid>
             <views:GridImagesView DataContext="{Binding ImagePanelViewModel}"

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using PicTureen.Annotations;
+using PicTureen.Services;
 using PicTureen.Support;
 
 namespace PicTureen.ViewModels
 {
-    class SearchViewModel : INotifyPropertyChanged
+    public class SearchViewModel : INotifyPropertyChanged
     {
+        private readonly IAppState _appState;
+        private readonly IContextProvider _contextProvider;
         private string _searchString;
         private string _searchMinWidth;
         private string _searchMaxWidth;
@@ -32,8 +35,10 @@ namespace PicTureen.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private List<String> _searchHistoryList; 
 
-        public SearchViewModel()
+        public SearchViewModel(IAppState appState, IContextProvider contextProvider)
         {
+            _appState = appState;
+            _contextProvider = contextProvider;
             _showDimensions = false;
             _showRating = false;
             _searchHistoryList = new List<string>();
@@ -73,7 +78,7 @@ namespace PicTureen.ViewModels
 
         public void ShowHideDimensions()
         {
-            _showDimensions = !_showDimensions;
+            ShowDimensions = !ShowDimensions;
 
         }
 
