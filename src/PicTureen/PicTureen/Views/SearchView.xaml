@@ -3,141 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:search="clr-namespace:PicTureen.ViewModels.Search"
              mc:Ignorable="d"
-             d:DesignHeight="220" d:DesignWidth="250">
+             d:DesignHeight="220" d:DesignWidth="250"
+             d:DataContext="{d:DesignInstance search:SearchViewModel}">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin"
+                        Value="10"/>
+                <Setter Property="VerticalContentAlignment"
+                        Value="Center"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin"
+                        Value="5"/>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0"
-                 Text="{Binding Path=SearchString}" />
-        <Button Grid.Row="2" Content="Name"
-                ContextMenuService.IsEnabled="False">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem x:Name="NameIncluded" IsCheckable="True" Header="Include" />
-                    <MenuItem x:Name="NameExcluded" IsCheckable="True" Header="Exclude" />
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button Grid.Row="3" Content="Tags"
-                ContextMenuService.IsEnabled="False">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem x:Name="TagsIncluded" IsCheckable="True" Header="Include" />
-                    <MenuItem x:Name="TagsExluded" IsCheckable="True" Header="Exclude" />
-                    <MenuItem x:Name="TagsMissing" IsCheckable="True" Header="Missing" />
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button Grid.Row="4" Content="Description"
-                ContextMenuService.IsEnabled="False">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem x:Name="DescriptionIncluded" IsCheckable="True" Header="Include" />
-                    <MenuItem x:Name="DescriptionExluded" IsCheckable="True" Header="Exclude" />
-                    <MenuItem x:Name="DescriptionMissing" IsCheckable="True" Header="Missing" />
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button x:Name="Dimensions"
-                Grid.Row="5"
-                Height="Auto"
-                VerticalAlignment="Top"
-                Content="Dimensions"
-                Command="{Binding ShowHideDimensionsCommand}" />
-        <Grid x:Name="DimensionsGrid"
-              Grid.Row="6"
-              VerticalAlignment="Bottom">
-            <Grid.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ShowDimensions}"
-                                     Value="true">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Visible" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding ShowDimensions}"
-                                     Value="false">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Collapsed" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Name" />
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchName}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   Text="Tags" />
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchTags}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Description" />
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding SearchDescription}" />
 
 
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="83*" />
-                <ColumnDefinition Width="100*" />
-                <ColumnDefinition Width="100*" />
-            </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Width:" Grid.ColumnSpan="2" />
-            <Label Grid.Row="1" Grid.Column="0" Content="Height:" Grid.ColumnSpan="2" />
-
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="3"
-                     Text="{Binding Path=SearchMinWidth}" />
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="3"
-                     Text="{Binding Path=SearchMinHeight}" />
-            <TextBox Grid.Column="2" Grid.Row="0" Margin="3"
-                     Text="{Binding Path=SearchMaxWidth}" />
-            <TextBox Grid.Column="2" Grid.Row="1" Margin="3"
-                     Text="{Binding Path=SearchMaxHeight}" />
-        </Grid>
-        <Button x:Name="RatingButton"
-                Grid.Row="7"
-                Height="Auto"
-                VerticalAlignment="Top"
-                Content="Rating"
-                Command="{Binding ShowHideRatingCommand}" />
-        <Grid x:Name="RatingGrid"
-              Grid.Row="8"
-              VerticalAlignment="Bottom">
-            <Grid.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ShowRating}"
-                                     Value="true">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Visible" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding ShowRating}"
-                                     Value="false">
-                            <Setter Property="Grid.Visibility"
-                                    Value="Collapsed" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-
-            <Grid.RowDefinitions>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="83*" />
-                <ColumnDefinition Width="100*" />
-                <ColumnDefinition Width="100*" />
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Rating:" Grid.ColumnSpan="2" />
-
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="3"
+            <TextBlock Grid.Row="4"
+                       Grid.Column="0"
+                       Text="Width:" />
+            <TextBlock Grid.Row="5"
+                       Grid.Column="0"
+                       Text="Height:" />
+            <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Rating:" />
+            <TextBlock Grid.Row="6"
+                       Grid.Column="0"
+                       Text="Date:" />
+            
+            <TextBox Grid.Column="1"
+                     Grid.Row="3"
                      Text="{Binding Path=SearchMinRating}" />
-            <TextBox Grid.Column="2" Grid.Row="0" Margin="3"
+            <TextBox Grid.Column="2"
+                     Grid.Row="3"
                      Text="{Binding Path=SearchMaxRating}" />
-        </Grid>
+            <TextBox Grid.Column="1"
+                     Grid.Row="4"
+                     Text="{Binding Path=SearchMinWidth}" />
+            <TextBox Grid.Column="1"
+                     Grid.Row="5"
+                     Text="{Binding Path=SearchMinHeight}" />
+            <TextBox Grid.Column="2"
+                     Grid.Row="4"
+                     Text="{Binding Path=SearchMaxWidth}" />
+            <TextBox Grid.Column="2"
+                     Grid.Row="5"
+                     Text="{Binding Path=SearchMaxHeight}" />
+
+        <Button Grid.ColumnSpan="3" 
+                Grid.Column="0"
+                Grid.Row="6"
+                Content="Search"
+                Command="{Binding SearchCommand}" />
+
     </Grid>
 </UserControl>
