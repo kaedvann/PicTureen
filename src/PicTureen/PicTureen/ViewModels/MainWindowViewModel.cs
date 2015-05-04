@@ -5,6 +5,7 @@ using Interfaces;
 using Microsoft.Practices.Unity;
 using PicTureen.Services;
 using PicTureen.Support;
+using PicTureen.ViewModels.Search;
 
 namespace PicTureen.ViewModels
 {
@@ -46,6 +47,7 @@ namespace PicTureen.ViewModels
             ImagePanelViewModel = _container.Resolve<ImagePanelViewModel>();
             TreeViewModel = _container.Resolve<TreeViewModel>();
             PropertiesViewModel = _container.Resolve<PropertiesViewModel>();
+            SearchViewModel = _container.Resolve<SearchViewModel>();
         }
 
         public TreeViewModel TreeViewModel { get; set; }
@@ -53,6 +55,7 @@ namespace PicTureen.ViewModels
         public PropertiesViewModel PropertiesViewModel { get; set; }
 
         public ImagePanelViewModel ImagePanelViewModel { get; set; }
+        public SearchViewModel SearchViewModel { get; set; }
 
         private void UpdateView()
         {
