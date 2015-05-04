@@ -15,17 +15,22 @@ namespace PicTureen.ViewModels
         private readonly IAppState _appState;
         private readonly IContextProvider _contextProvider;
         private readonly ISettingsService _settingsService;
+        private readonly INavigationService _navigationService;
 
         public BindableCollection<TreeItem> Items { get; set; }
 
+        public DelegateCommand OpenImageCommand { get; set; }
+
         public DelegateCommand HandleSelectionChangeCommand { get; set; }
-        public TreeViewModel(IAppState appState, IContextProvider contextProvider, ISettingsService settingsService)
+        public TreeViewModel(IAppState appState, IContextProvider contextProvider, ISettingsService settingsService, INavigationService navigationService)
         {
             Items = new BindableCollection<TreeItem>();
             _appState = appState;
             _contextProvider = contextProvider;
             _settingsService = settingsService;
+            _navigationService = navigationService;
 
+            OpenImageCommand = new DelegateCommand(OpenImage);
             HandleSelectionChangeCommand = new DelegateCommand(HandleSelectionChange);
             BuildTree();
 
@@ -55,7 +60,11 @@ namespace PicTureen.ViewModels
                 }
             }
         }
-
+        private void OpenImage(object obj)
+        {
+            var image = (ImageTreeItem)obj;
+            _navigationService.ShowImage(image.Image);
+        }
         private void AppStateOnDbChanged(object sender, EventArgs eventArgs)
         {
             BuildTree();

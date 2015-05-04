@@ -34,7 +34,9 @@
                MaxHeight="280"
                MaxWidth="230"
                Stretch="Uniform"
-               Margin="10"
+               Margin="10"  
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
                Source="{Binding Path=Image.Path, IsAsync=True, FallbackValue=''}"></Image>
         <Label Grid.Row="1" Grid.Column="0" Content="Name:"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Width:"/>
