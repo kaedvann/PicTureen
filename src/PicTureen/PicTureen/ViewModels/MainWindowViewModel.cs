@@ -43,14 +43,13 @@ namespace PicTureen.ViewModels
 
         private void InitializeViews()
         {
+            ImagePanelViewModel = _container.Resolve<ImagePanelViewModel>();
             TreeViewModel = _container.Resolve<TreeViewModel>();
             PropertiesViewModel = _container.Resolve<PropertiesViewModel>();
-            ImagePanelViewModel = _container.Resolve<ImagePanelViewModel>();
-            SearchViewModel = _container.Resolve<SearchViewModel>();
         }
 
         public TreeViewModel TreeViewModel { get; set; }
-        public SearchViewModel SearchViewModel { get; set; }
+
         public PropertiesViewModel PropertiesViewModel { get; set; }
 
         public ImagePanelViewModel ImagePanelViewModel { get; set; }
